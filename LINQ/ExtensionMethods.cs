@@ -14,7 +14,7 @@ public class ExtensionMethods
 
     // Filtering
     public List<int> GetOddNumbers() => Numbers.Where(n => n % 2 == 0).ToList();
-    public List<string> GetShortNames() => Names.Where(n => n.Length < 4).ToList();
+    public List<string> GetShortNamesByLenth(int l = 4) => Names.Where(n => n.Length < l).ToList();
 
     // Partinioning
     public void GetXNumbers(int x) { }

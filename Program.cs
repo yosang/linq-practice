@@ -6,8 +6,8 @@ public class Program
     {
         var em = new ExtensionMethods();
 
-        em.Print(em.GetOddNumbers());
-        em.Print(em.GetShortNames());
+        // em.Print(em.GetOddNumbers());
+        // em.Print(em.GetShortNamesByLenth());
 
         var qs = new QuerySyntax();
         // Working with Numbers
@@ -32,6 +32,8 @@ public class Program
         // qs.Print(qs.MakeAllUpper());
         // qs.Print(qs.MakeUpperWithLetter("y"));
         // qs.Print(qs.GetShortNames());
+        // qs.Print(qs.GetShortestNames());
+        qs.Print(qs.GetShortestnamesV2());
 
         // Single values
         // qs.Print(qs.CountOfNamesContainingLetter("l"));

@@ -3,7 +3,7 @@ namespace linq.Queries;
 public class QuerySyntax
 {
     private int[] Numbers { get; set; } = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    private string[] Names { get; set; } = { "Harry", "Tom", "Alex", "Christina", "Warren", "Yosmel" };
+    private string[] Names { get; set; } = { "Harry", "Ari", "Tom", "Alex", "Christina", "Warren", "Yosmel" };
 
     public void Print<T>(List<T> data)
     {
@@ -14,7 +14,8 @@ public class QuerySyntax
 
     // Filtering
     public List<int> GetOddNumbers() => (from n in Numbers where n % 2 == 1 select n).ToList();
-    public List<string> GetShortNames() => (from s in Names where s.Length <= 3 select s).ToList();
+    public List<string> GetShortNames() => (from s in Names where s.Length == 3 select s).ToList();
+    public List<string> GetShortestNames() => (from s in Names where s.Length == Names.Min(n => n.Length) select s).ToList(); // Does the same as above, but here we are doing a suquery to get the name with the shortest length for the where clause
 
     // Partinioning
     public List<int> GetXNumbers(int x) => (from n in Numbers select n).Take(x).ToList(); // Get X numbers
@@ -40,17 +41,30 @@ public class QuerySyntax
     public List<string> GetLongestNamesWithLetter(string l) => (from s in Names
                                                                 where s.ToLower().Contains(l.Trim().ToLower())
                                                                 orderby s.Length
-                                                                select s).ToList();
+                                                                select s
+                                                                ).ToList();
+
     public List<string> GetLongestNameWithLetterDescending(string l) => (
                                                                         from s in Names
                                                                         where s.ToLower().Contains(l.Trim().ToLower())
                                                                         orderby s.Length descending
-                                                                        select s).ToList();
+                                                                        select s
+                                                                        ).ToList();
 
     // Projection (transformation)
     public List<string> MakeAllUpper() => (from s in Names select s.ToUpper()).ToList();
+
     public List<string> MakeUpperWithLetter(string l) => (from s in Names
                                                           where s.ToLower().StartsWith(l.Trim().ToLower())
-                                                          select s.ToUpper()).ToList();
+                                                          select s.ToUpper()
+                                                          ).ToList();
 
+    // let keyword
+    // Allows us to introduce a new variable inside the query expression, this does the same as GetShortestNames()
+    public List<string> GetShortestnamesV2() => (
+                                                from s in Names
+                                                let shortestName = Names.Min(e => e.Length)
+                                                where s.Length == shortestName
+                                                select s
+                                                ).ToList();
 }
