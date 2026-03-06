@@ -13,5 +13,7 @@ public class Program
 
         // Working with single values
         Print(CountOfNamesContainingLetter("l"));
+        Print(FirstNameAlphabetically());
+        Print(LastNameAlphabetically());
     }
 }

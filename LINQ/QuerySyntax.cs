@@ -41,6 +41,10 @@ public class QuerySyntax
     public static int CountOfNamesContainingLetter(string l) => (from s in Names
                                                                  where s.Contains(l)
                                                                  select s).Count();
+
     // Returning the first element of an ordered sequence
-    // OrderBy orders ascending by default
+    // OrderBy orders ascending by default, so in order to get the first / or last name by an alphabetically ordere sequence we can use
+    // First() and Last()
+    public static string FirstNameAlphabetically() => (from s in Names orderby s select s).First();
+    public static string LastNameAlphabetically() => (from s in Names orderby s select s).Last();
 }
