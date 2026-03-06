@@ -2,9 +2,8 @@ namespace linq.Queries;
 
 public class QuerySyntax
 {
-    private int[] _nums { get; set; }
-
-    public QuerySyntax(int[] data) => _nums = data;
+    public int[] Numbers { get; set; } = [];
+    public string[] Strings { get; set; } = [];
 
     public void Print<T>(List<T> list)
     {
@@ -16,7 +15,7 @@ public class QuerySyntax
 
     public List<int> getOddNumbers()
     {
-        var query = (from n in _nums
+        var query = (from n in Numbers
                      where n % 2 == 1
                      select n
                     );
