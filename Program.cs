@@ -14,15 +14,18 @@ public class Program
         // Print(GetCountOfNumbers());
         // Print(GetSumOfNumbers());
         // Print(GetMinNumber());
-        Print(IsXInThere(5)); // true
-        Print(IsXInThere(20)); // false
+        // Print(IsXInThere(5)); // true
+        // Print(IsXInThere(20)); // false
+        // Print(GetNumbersBelowFive());
 
         // Working with Strings
         // Enumerables
         // Print(GetOddNumbers());
         // Print(GetLongestNamesWithLetter("l"));
+        // Print(GetLongestNameWithLetterDescending("l"));
         // Print(MakeAllUpper());
         // Print(MakeUpperWithLetter("y"));
+        // Print(GetShortNames());
 
         // Single values
         // Print(CountOfNamesContainingLetter("l"));
