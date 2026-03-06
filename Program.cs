@@ -1,15 +1,17 @@
-﻿using linq.Queries;
+﻿using static linq.Queries.QuerySyntax;
 
 public class Program
 {
     public static void Main()
     {
-        var instance = new QuerySyntax();
 
-        instance.Numbers = new[] { 1, 2, 3, 4, 5 };
+        // Working with Enumerables
+        // Print(GetOddNumbers());
+        // Print(GetLongestNamesWithLetter("l"));
+        // Print(MakeAllUpper());
+        // Print(MakeUpperWithLetter("y"));
 
-        instance.Print(instance.getOddNumbers());
-
-        // var names = new QuerySyntax(new[])
+        // Working with single values
+        Print(CountOfNamesContainingLetter("l"));
     }
 }
